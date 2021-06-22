@@ -1,0 +1,104 @@
+body{
+    position: fixed;
+    width: 100%;
+}
+#titre{
+    position: relative;
+    left: 830px;
+    top: 10px;
+    color: #fff;
+}
+
+
+.hexagon {
+    position: relative;
+    width: 300px; 
+    height: 173.21px;
+    background-color: transparent;
+    border-left: solid 2px #DCC298;
+    border-right: solid 2px #DCC298;
+    margin-left: auto;
+    margin-right: auto;
+ 
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 218.13px;
+    height: 212.13px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 38.9340px;
+  }
+  
+  .hexagon:before {
+    top: -106.0660px;
+    border-top: solid 4.0711px #DCC298;
+    border-right: solid 4.0711px #DCC298;
+  }
+  
+  .hexagon:after {
+    bottom: -106.0660px;
+    border-bottom: solid 4.0711px #DCC298;
+    border-left: solid 4.0711px #DCC298;
+  }
+
+  #un{
+    top: 150px;
+    transform: rotate(31deg);
+    animation-name: spin;
+    animation-duration: 15000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+  @keyframes spin {
+    from {
+        transform:rotate(31deg);
+    }
+    to {
+        transform:rotate(-360deg);
+    }
+}
+
+ #deux{
+    top: -20px;
+    transform: rotate(60deg);
+    animation-name: spin2;
+    animation-duration: 15000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+
+  @keyframes spin2 {
+    from {
+        transform:rotate(60deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+  
+  #logo{
+      top: -220px;
+      width: 250px;
+      position: relative;
+      left: 830px;
+      animation: pulse 5s ;
+  }
+
+  @keyframes pulse {
+    0% {
+      margin-left: 75px;
+      opacity: 0;
+     width: 100px;
+    }
+    100% {
+      opacity: 100%;
+      width: 250px;
+    }
+  }
