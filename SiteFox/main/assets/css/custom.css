@@ -4,7 +4,7 @@ body{
 }
 #titre{
     position: relative;
-    left: 830px;
+    left: 650px;
     top: 10px;
     color: #fff;
 }
@@ -87,7 +87,7 @@ body{
       top: -220px;
       width: 250px;
       position: relative;
-      left: 830px;
+      left: 670px;
       animation: pulse 5s ;
   }
 
@@ -102,3 +102,22 @@ body{
       width: 250px;
     }
   }
+
+ 
+
+  /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 800px */
+@media screen and (max-width: 800px){
+  #titre{
+    position: relative;
+    left: 80px;
+    top: 10px;
+    color: #fff;
+}
+#logo{
+  top: -200px;
+  width: 250px;
+  position: relative;
+  left: 48px;
+  animation: pulse 5s ;
+}
+}

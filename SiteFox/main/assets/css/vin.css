@@ -1,0 +1,132 @@
+body{
+    position: fixed;
+    width: 100%;
+}
+#cercle {
+    width: 680px;
+    height: 680px;
+    border-radius: 400px;
+    border: 4px solid #e7916b;
+    position: relative;
+    top: -10px;
+
+}
+
+#imgVin{
+    width: 250px;
+}
+#position {
+    position: relative;
+    left: 500px;
+    display: flex;
+}
+
+.hexagon {
+    position: relative;
+    width: 550px; 
+    height: 317.54px;
+    background-color: transparent;
+    margin: 158.77px 0;
+    border-left: solid 5px #DCC298;
+    border-right: solid 5px #DCC298;
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 388.91px;
+    height: 388.91px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 75.5456px;
+  }
+  
+  .hexagon:before {
+    top: -194.4544px;
+    border-top: solid 7.0711px #DCC298;
+    border-right: solid 7.0711px #DCC298;
+  }
+  
+  .hexagon:after {
+    bottom: -194.4544px;
+    border-bottom: solid 7.0711px #DCC298;
+    border-left: solid 7.0711px #DCC298;
+  }
+  #un{
+    top: 150px;
+    transform: rotate(31deg);
+  }
+  
+ #deux{
+    top: -320px;
+    transform: rotate(60deg);
+
+  }
+
+  #hexa{
+      position: relative;
+      left: 55px;
+      top: -200px;
+  }
+
+  
+
+.circle{
+    width: 40px;
+    height: 40px;
+    border-radius:40px;
+    background-color: #DCC298;
+    border: 4px solid #DCC298;
+ 
+}
+
+#cercleUn{
+position: relative;
+top: 20px;
+left: 370px;
+padding:10px 15px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleDeux{
+position: relative;
+top: 450px;
+left: 0px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleTrois{
+position: relative;
+top: 55px;
+left: 10px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleQuatre{
+position: relative;
+left: 420px;
+top: 420px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+
+
+.toggleVin{
+	border: 4px solid rgba(220,194,152,0.34);
+	border-radius: 10px;
+	width: 400px;
+	color: aliceblue;
+	position: relative;
+	left: 885px;
+	top: -500px;
+	font-family: 'Alice', serif;
+ }
+
