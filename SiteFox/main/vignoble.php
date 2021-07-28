@@ -1,22 +1,26 @@
 <?php
-$vinID = 1;
+require "config.php";
+require "classes/vignobles.class.php";
+
 if (isset($_GET["id"])) {
-  $vinID = (int) $_GET['id'];
-  if (!is_numeric(($vinID))) $vinID = 1;
+    $vignobleId = (int) $_GET["id"];
+    if (!is_numeric($vignobleId)) {
+        echo "Id de vignoble incorrect";
+        exit;
+    }
+} else {
+    echo "ID du vignoble non specifier";
+    exit;
 }
 
-$host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "foxscellar";
+$vignoble = Vignobles::findOne($vignobleId);
 
-try {
-  $db = new PDO("mysql:host=".$host.";dbname=".$db_name.";charset=utf8;", $db_user, $db_password);
-  $vin = $db->query("SELECT * FROM vins WHERE idVins=".$vinID)->fetch(PDO::FETCH_ASSOC);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+if ($vignoble === false) {
+    echo "vignoble introuvable";
+    exit;
 }
 
+$vignobleVins = $vignoble->findAllVins();
 
 ?>
 <!DOCTYPE html>
@@ -30,33 +34,20 @@ try {
     <title>Vin Vignoble</title>
 </head>
 <body>
-<h1><?= $vin["vignoble"]; ?></h1>
+<h1><?= $vignoble->nom; ?></h1>
     <div class="container">
+
+        <?php foreach ( $vignobleVins as $vin) { ?>
    
         <div class="card">
             <div class="content">
                 <h2>01</h2>
-                <h3><?= $vin["titre"]; ?></h3>
-                <p><img id ="imgVin"src="<?= $vin["image"]; ?>" alt="" srcset=""></p>
-                    <a href="http://">Read more</a>
+                <h3><?= $vin->titre; ?></h3>
+                <p><img id ="imgVin"src="<?= $vin->image; ?>" alt="" srcset=""></p>
+                    <a href="vin.php?id=<?= $vin->idVins; ?>">Read more</a>
             </div>
         </div>
-        <div class="card">
-            <div class="content">
-                <h2>02</h2>
-                <h3><?= $vin["titre"]; ?></h3>
-                <p><img id ="imgVin"src="<?= $vin["image"]; ?>" alt="" srcset=""></p>
-                    <a href="http://">Read more</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <h2>03</h2>
-                <h3><?= $vin["titre"]; ?></h3>
-                <p><img id ="imgVin"src="<?= $vin["image"]; ?>" alt="" srcset=""></p>
-                    <a href="http://">Read more</a>
-            </div>
-        </div>
+        <?php } ?>
     </div>
     <script type="text/javascript">
 	VanillaTilt.init(document.querySelectorAll(".card"), {

@@ -1,3 +1,10 @@
+<?php
+// session_start();
+// if(!$_SESSION['cle']){
+//   header('Location: connexion2.php');
+// }
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,53 +14,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link id="codyframe" rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/parallax.css">
+  <link rel="manifest" href="dunplab-manifest-48027.json">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <script  src="parallax.js"></script>
   <script  src="toggle.js"></script>
-  <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-  </style>
+  <script  src="app.js"></script>
 </head>
   <body>
 
@@ -85,13 +51,6 @@
               </button>
       
             </li>
-      
-            <!-- <li><a class="drop-menu__link" href="#0">Home &amp; Garden</a></li>
-            <li><a class="drop-menu__link" href="#0">Toys</a></li>
-            <li><a class="drop-menu__link" href="#0">Clothes</a></li>
-            <li><a class="drop-menu__link" href="#0">Health &amp; Beauty</a></li>
-            <li><a class="drop-menu__link" href="#0">Car &amp; Motorbike</a></li>
-            <li><a class="drop-menu__link" href="#0">Sports</a></li> -->
           </ul>
       
 
@@ -104,10 +63,14 @@
           <span>Close Menu</span>
         </button>
       </div>
+      <div >
+        <a id="connexion" href="connexion2.php">Se connecter</a>
+      </div>
     <!-- Fin Menu -->
       <ul id="scene">
         <li class="layer" id="sol" data-depth=".1"><img  id="sol" src="assets/img/parallax/sol.png"></li>
-        <li class="layer" id="cheshire" data-depth=".1"><img src="assets/img/parallax/chat.png"></li>
+        <li class="layer" id="cheshire" data-depth=".1"><object id="anim-immo-vitrine" class="block width-100%" data="assets/img/parallax/chat.svg" type="image/svg+xml"></object></li>
+        <!-- <img src="assets/img/parallax/chat.svg"> -->
 
 
           <!-- Recommandation -->
@@ -154,21 +117,7 @@
       </ul>
     </div>
       <!-- Fin Effet -->
-      <h2>Modal Example</h2>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
+     
   
 
     <script>

@@ -1,21 +1,17 @@
 <?php
+require "config.php";
+require "classes/vins.class.php";
 $vinID = 1;
 if (isset($_GET["id"])) {
   $vinID = (int) $_GET['id'];
   if (!is_numeric(($vinID))) $vinID = 1;
 }
 
-$host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "foxscellar";
-
-try {
-  $db = new PDO("mysql:host=".$host.";dbname=".$db_name.";charset=utf8;", $db_user, $db_password);
-  $vin = $db->query("SELECT * FROM vins WHERE idVins=".$vinID)->fetch(PDO::FETCH_ASSOC);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
+$vin = Vins::findOne($vinID);
+  if (!$vin) {
+    echo "Vin introuvable";
+    exit;
+  }
 
 
 ?>
@@ -38,10 +34,10 @@ try {
   <body>
     <div class="height-100vh bg-gradient-1" data-bg-animate="on">
     
-    <h1><?= $vin["titre"]; ?></h1>
+    <h1><?= $vin->titre; ?></h1>
 
     <div id="position">
-    <img id ="imgVin"src="<?= $vin["image"]; ?>" alt="" srcset="">
+    <img id ="imgVin"src="<?= $vin->image; ?>" alt="" srcset="">
 
     <div id="cercle">
         <div id ="cercleUn" class="circle"></div>
@@ -57,21 +53,21 @@ try {
 </div>
 
         <div class =" toggleVin" id="vinDegustation" style="display: none" >
-              <p><?= $vin["degustation"]; ?></p>
+              <p><?= $vin->degustation; ?></p>
             </div>
              
     
            <div class =" toggleVin" style="display: none" id="vinVins" >
-              <p><?= $vin["caracteristique"]; ?></p>
+              <p><?= $vin->caracteristique; ?></p>
            </div>
             
     
             <div class =" toggleVin" style="display: none" id="vinCepage" >
-              <p><?= $vin["cepage"]; ?></p>
+              <p><?= $vin->cepage; ?></p>
             </div>
   
              <div class =" toggleVin" style="display: none" id="vinAccords" >
-              <p><?= $vin["accords_mets"]; ?></p>
+              <p><?= $vin->accords_mets; ?></p>
             </div>
 
 </div>

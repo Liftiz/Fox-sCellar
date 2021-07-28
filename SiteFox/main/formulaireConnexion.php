@@ -19,21 +19,21 @@
                     $err =  htmlspecialchars($_GET['login_err']);
 
                     switch($err){
-                        case ' mp':
+                        case' mp':
                             ?>
                             <div class = " alert alert-danger">
                                 <strong> Erreur</strong> Le mot de passe est incorrect.
                             </div>
                         <?php
                         break;
-                        case 'email':
+                        case'email':
                         ?>
                             <div class="alert alert-danger">
                             <strong> Erreur</strong> L'email est incorrect.
                             </div>
                             <?php
                         break;
-                        case 'already':
+                        case'already':
                         ?>
                             <div class="alert alert-danger">
                             <strong> Erreur</strong> Le compte n'existe pas.

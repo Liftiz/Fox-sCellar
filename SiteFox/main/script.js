@@ -5,6 +5,6 @@ window.onload =function miseEnAttente()
 }
 function fonctionAExecuter()
 {
-    window.location.href = "accueil.html";
+    window.location.href = "accueil.php";
 }
 console.log(document.location);

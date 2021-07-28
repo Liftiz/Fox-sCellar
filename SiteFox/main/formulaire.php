@@ -1,3 +1,98 @@
+<?php
+require "PHPMailer/PHPMailerAutoload.php";
+session_start();
+
+$host = "localhost";
+$db_user = "root";
+$db_password = "";
+$db_name = "foxscellar";
+
+try {
+  $bdd = new PDO("mysql:host=".$host.";dbname=".$db_name.";charset=utf8;", $db_user, $db_password);
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+  exit;
+}
+
+if(isset($_POST['valider'])){
+    //verifier si il a bien rentrée l'email
+    if(!empty($_POST['email'])){
+        $cle = rand(1000000, 9000000);
+        $email = $_POST['email'];
+        $nom = $_POST['nom'];
+        $prenom= $_POST['prenom'];
+        $mdp = $_POST['mdp'];
+
+        $insererUser= $bdd->prepare('INSERT INTO personnes(nom, prenom, email,mdp, cle, confirme) VALUES (?, ?, ?, ?, ? , ?) ');
+        //Statut confirme à 0 s'il es bien confirme il sera mis à 1
+        $insererUser->execute(array($nom, $prenom,  $email,$mdp, $cle, 0));
+        // recupérer lid de l'utilisateur insérer
+        $recupUser = $bdd->prepare('SELECT * FROM personnes WHERE email = ?');
+        $recupUser->execute(array($email));
+        // une session est une variable global, qui va transisté qu'on va pouvoir récupérer au niveau des pages pour laisser l'utilisateur authentifier
+     
+        if($recupUser->rowCount()>0){
+            $userInfos = $recupUser->fetch();
+            $_SESSION['idPersonne'] = $userInfos['idPersonne'];
+            $id = $bdd->lastInsertId();
+
+            function smtpmailer($to, $from, $from_name, $subject, $body)
+            {
+                $mail = new PHPMailer();
+                $mail->IsSMTP();
+                $mail->SMTPAuth = true; 
+                    //SSL pour gmail
+                $mail->SMTPSecure = 'ssl'; 
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 465;
+                $mail->Username = 'marie.blanc.1996@gmail.com';
+                $mail->Password = 'Emilie04!';   
+        
+        //   $path = 'reseller.pdf';
+        //   $mail->AddAttachment($path);
+        
+                $mail->IsHTML(true);
+                $mail->From="marie.blanc.1996@gmail.com";
+                $mail->FromName=$from_name;
+                $mail->Sender=$from;
+                $mail->AddReplyTo($from, $from_name);
+                $mail->Subject = $subject;
+                $mail->Body = $body;
+                $mail->AddAddress($to);
+                if(!$mail->Send())
+                {
+                    $error ="Please try Later, Error Occured while Processing...";
+                    return $error; 
+                }
+                else 
+                {
+                    $error = "Thanks You !! Your email is sent.";  
+                    return $error;
+                }
+            }
+            
+            $to   = $email;
+            $from = 'marie.blanc.1996@gmail.com';
+            $name = "Fox's Cellar";
+            $subj = 'Email de confirmation de compte';
+            $lien = 'http://localhost/vin/verif.php?idPersonne='.$_SESSION['idPersonne'].'&cle='.$cle;
+            $msg = ' <div style ="background: url(../img/parallax/backgroundFlou.png);"> <a style ="color:#DCC298; text-decoration: none; text-align: center; font-weight: 900; font-size: large;"id ="confirmationEmail" href="'.$lien.'">Confimer votre email</a></div>';
+            // $msg = 'http://localhost/vin/verif.php?id='.$_SESSION['id'].'&cle='.$cle.;
+            
+            $error=smtpmailer($to,$from, $name ,$subj, $msg);
+           
+        
+
+        }else{
+                echo "Veuillez rentrez tous les champs";
+            }
+
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +115,7 @@
     <div class="height-100vh bg-gradient-1" data-bg-animate="on">
         <!-- Va contenir tout mon formulaire -->
         <main>
+            
             <header>
             </header>
             <?php
@@ -85,7 +181,7 @@
             }
             ?>
         
-            <form action="inscription_traitement.php" method="post">
+            <form action="" method="post">
                 <div class="page" id="page1">
                     <h1>Identité</h1>
                     <div>
@@ -96,32 +192,11 @@
                         <label for="prenom">Prénom :</label>
                         <input type="text" name="prenom" id="prenom">
                     </div>
-                    <div>
-                        <label for="date">Date de naissance :</label>
-                        <input type="date" id="start" name="dateDeNaissance">
-                    </div>
                     <button class="next" type="button">Suivant</button>
                     <button class="prev" type="button">Précédent</button>
 
                 </div>
                 <div class="page" id="page2">
-                    <h1>Informations</h1>
-                    <div>
-                        <label for="adresse">Adresse :</label>
-                        <input type="text" name="adresse" id="adresse">
-                    </div>
-                    <div>
-                        <label for="cp">Code postal :</label>
-                        <input type="text" name="cp" id="cp">
-                    </div>
-                    <div>
-                        <label for="ville">Ville :</label>
-                        <input type="text" name="ville" id="ville">
-                    </div>
-                    <button class="next" type="button">Suivant</button>
-                    <button class="prev" type="button">Précédent</button>
-                </div>
-                <div class="page" id="page3">
                     <h1>Identifiant</h1>
                     <div>
                         <label for="email">Email : </label>
@@ -136,7 +211,7 @@
                         <input type="text" name="mdp_retype" id="mdp">
                     </div>
                     <button class="prev" type="button">Précédent</button>
-                    <button>Terminer</button>
+                    <input type="submit" name="valider">
                 </div>
             </form>
         </main>

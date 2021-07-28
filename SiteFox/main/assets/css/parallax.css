@@ -25,7 +25,7 @@ body
 
 #cheshire{
 	position: relative;
-	margin-left: 1050px;
+	margin-left: 1500px;
 	width: 700px;
 
 }
@@ -37,11 +37,11 @@ body
 }
 #vin{
 	position: relative;
-	margin-left: 700px;
-	margin-top: 60px;
+	margin-left: 1050px;
+	margin-top: 250px;
 }
 #tailleVin {
-	width: 300px;
+	width: 350px;
 }
 
 a{text-decoration: none;
@@ -60,7 +60,7 @@ a:active { text-decoration: none;
 
 h1{
 	color: #DCC298;
-	font-size: 20px;
+	font-size: 30px;
 	position: relative;
 	left: 600px;
 	font-family: 'Dancing Script', cursive;
@@ -127,8 +127,8 @@ h1{
 	width: 450px;
 	color: aliceblue;
 	position: relative;
-	left: 170px;
-	top: 70px;
+	left: 600px;
+	top: 200px;
 	font-family: 'Alice', serif;
  }
 
@@ -236,4 +236,13 @@ h1{
 	top: 95px;
 	font-family: 'Alice', serif;
  }
+ }
+
+
+ #connexion {
+	position: relative;
+	top: -25px;
+	float: right;
+	 color: aliceblue;
+	 font-weight: bolder;
  }

@@ -4,7 +4,7 @@ body{
 }
 #titre{
     position: relative;
-    left: 650px;
+    left: 920px;
     top: 10px;
     color: #fff;
 }
@@ -87,7 +87,7 @@ body{
       top: -220px;
       width: 250px;
       position: relative;
-      left: 670px;
+      left: 950px;
       animation: pulse 5s ;
   }
 
