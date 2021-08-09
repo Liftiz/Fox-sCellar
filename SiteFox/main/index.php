@@ -23,17 +23,17 @@
 
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" href="assets/img/pngegg.png" />
   <link id="codyframe" rel="stylesheet" href="assets/css/style.css">
   <link id="codyframe" rel="stylesheet" href="assets/css/custom.css">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <script src="script.js"></script>
-
+  <script src="assets/js/script.js"></script>
+  <title>Fox's Cellar</title>
 </head>
   <body>
     

@@ -1,0 +1,27 @@
+{
+    "short_name": "Fox's Cellar",
+    "name": "Fox's Cellar",
+    "lang": "fr",
+    "description": "Site qui répertorie les vins de manière créative",
+    "start_url": "index.php",
+    "background_color": "#00aae7",
+    "theme_color": "#00aae7",
+    "dir": "auto",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/img/pngegg512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "prefer_related_applications": "true",
+    "related_applications": [
+        {
+            "platform": "",
+            "url": "",
+            "id": ""
+        }
+    ]
+}

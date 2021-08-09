@@ -121,3 +121,53 @@ body{
   animation: pulse 5s ;
 }
 }
+
+.menu {
+  position: relative;
+  float: right;
+	text-align: center;
+  right: 55px;
+  top: -10px;
+  z-index: 99;
+}
+
+.menu .categorie {
+	display: inline-block;
+	vertical-align: top;
+	background: lightblue;
+}
+
+.menu .categorie ul {
+	display: none;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.menu .categorie:hover ul {
+	display: block;
+}
+
+.menu h3,
+.menu a {
+	display: block;
+	margin: 0;
+	padding: .5em 1.5em;
+	font-size: inherit;
+	color: white;
+	background-color: lightblue;
+	text-decoration: none;
+	box-sizing: border-box;
+	width: 10em;
+}
+
+.menu .categorie:hover h3 {
+	color: white;
+	background-color: steelblue;
+}
+
+.menu a:hover {
+	color: white;
+	background-color: skyblue;
+}

@@ -1,18 +1,9 @@
 <?php
 require "PHPMailer/PHPMailerAutoload.php";
+require "config.php";
 session_start();
 
-$host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "foxscellar";
 
-try {
-  $bdd = new PDO("mysql:host=".$host.";dbname=".$db_name.";charset=utf8;", $db_user, $db_password);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-  exit;
-}
 
 if(isset($_POST['valider'])){
     //verifier si il a bien rentrée l'email
@@ -21,7 +12,7 @@ if(isset($_POST['valider'])){
         $email = $_POST['email'];
         $nom = $_POST['nom'];
         $prenom= $_POST['prenom'];
-        $mdp = $_POST['mdp'];
+        $mdp = sha1($_POST['mdp']);
 
         $insererUser= $bdd->prepare('INSERT INTO personnes(nom, prenom, email,mdp, cle, confirme) VALUES (?, ?, ?, ?, ? , ?) ');
         //Statut confirme à 0 s'il es bien confirme il sera mis à 1
@@ -94,21 +85,18 @@ if(isset($_POST['valider'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-        document.getElementsByTagName("html")[0].className += " js";
-    </script>
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link id="codyframe" rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/formulaire.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <title>Formulaire</title>
-    <link rel="stylesheet" href="assets/css/formulaire.css">
     <script defer src="assets/js/formulaire.js"></script>
+    <title>Fox's Cellar: Formulaire</title>
 </head>
 
 <body>

@@ -31,7 +31,7 @@ $vignobleVins = $vignoble->findAllVins();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/vignoble.css">
     <script src="assets/js/vanilla-tilt.js"></script>
-    <title>Vin Vignoble</title>
+    <title>Fox's Cellar: Vin Vignoble</title>
 </head>
 <body>
 <h1><?= $vignoble->nom; ?></h1>

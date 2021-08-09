@@ -18,8 +18,8 @@ class Vins {
     }
 
     public static function findOne($id) {
-        global $db;
-        $vignoble = $db->query("SELECT * FROM vins WHERE idVins=".$id);
+        global $bdd;
+        $vignoble = $bdd->query("SELECT * FROM vins WHERE idVins=".$id);
         if ($vignoble) {
             $vignoble->setFetchMode(PDO::FETCH_CLASS, 'Vins');
             return $vignoble->fetch();

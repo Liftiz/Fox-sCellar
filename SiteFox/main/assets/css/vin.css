@@ -2,6 +2,7 @@ body{
     position: fixed;
     width: 100%;
 }
+
 #cercle {
     width: 680px;
     height: 680px;
@@ -130,3 +131,449 @@ display:inline-block
 	font-family: 'Alice', serif;
  }
 
+ .like {
+  position: relative;
+}
+.like__label {
+  display: block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+}
+.like__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.like__heart {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+  background-position: 0 0;
+  background-size: 4350px 180px;
+  cursor: pointer;
+}
+ .like__input:checked ~ .like__heart {
+  -webkit-animation: heart-explosion 1s steps(28);
+          animation: heart-explosion 1s steps(28);
+  transition: background 1s steps(28);
+  background-position: -4200px 0;
+}
+
+.like__heart::after {
+  display: block;
+  content: attr(data-label-default);
+  width: auto;
+  position: absolute;
+  z-index: -1;
+  bottom: 80%;
+  left: 50%;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #2b2b2b;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: translate(-50%, 0);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.like__heart:hover::after {
+  display: block;
+  opacity: 1;
+  z-index: 10;
+  transform: translate(-50%, -0.25rem);
+}
+
+.like__input:checked ~ .like__heart::after {
+  content: attr(data-label-active);
+} 
+
+ @-webkit-keyframes heart-explosion {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -4200px 0;
+  }
+}
+
+@keyframes heart-explosion {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -4200px 0;
+  }
+} 
+html,
+body {
+  height: 100%;
+}
+
+
+.tweet {
+  display: flex;
+  position: relative;
+  top: 350px;
+  left: 300px;
+
+}
+
+.attribution {
+  text-align: center;
+  font-family: sans-serif;
+  font-style: italic;
+  margin-top: 4rem;
+  color: #690e04;
+}
+
+.button__holder {
+  position: relative; 
+  display: flex;
+  flex-wrap: wrap;
+  top: 450px;
+  left: 340px;
+
+}
+.button__holder:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+}
+
+
+.plus {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  color: #ffffff;
+  background: #ed1c5b;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1), transform 200ms cubic-bezier(0.2, 0, 0.7, 1);
+}
+.plus:after {
+  content: "+";
+  font-size: 2.5em;
+  line-height: 1.1em;
+}
+.plus:hover {
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 15px rgba(138, 59, 88, 0.4), 0 0 1px 30px rgba(138, 59, 88, 0.1), 0 0 1px 45px rgba(138, 59, 88, 0.1);
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 800px){
+  h1{
+    font-size: 25px;
+    text-align: center;
+  }
+  #cercle {
+    width: 180px;
+    height: 180px;
+    border-radius:200px;
+    border: 4px solid transparent;
+    position: relative;
+    top: -10px;
+
+  }
+
+#imgVin{
+    width: 200px;
+    position: relative;
+    top: 130px;
+}
+#position {
+    position: relative;
+    top: -60px;
+    left: 0px;
+    display: flex;
+}
+
+.hexagon {
+    position: relative;
+    width: 150px; 
+    height: 317.54px;
+    background-color: transparent;
+    margin: 158.77px 0;
+    border-left: solid 5px #DCC298;
+    border-right: solid 5px #DCC298;
+    display: none;
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 388.91px;
+    height: 388.91px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 75.5456px;
+    display: none;
+  }
+  
+  .hexagon:before {
+    top: -194.4544px;
+    border-top: solid 7.0711px #DCC298;
+    border-right: solid 7.0711px #DCC298;
+  }
+  
+  .hexagon:after {
+    bottom: -194.4544px;
+    border-bottom: solid 7.0711px #DCC298;
+    border-left: solid 7.0711px #DCC298;
+  }
+  #un{
+    top: 150px;
+    transform: rotate(31deg);
+  }
+  
+ #deux{
+    top: -320px;
+    transform: rotate(60deg);
+
+  }
+
+  #hexa{
+      position: relative;
+      left: 55px;
+      top: -200px;
+  }
+
+  
+
+.circle{
+    width: 40px;
+    height: 40px;
+    border-radius:40px;
+    background-color: #DCC298;
+    border: 4px solid #DCC298;
+ 
+}
+
+#cercleUn{
+position: relative;
+top: -100px;
+left: -180px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleDeux{
+position: relative;
+top: -100px;
+left: -150px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleTrois{
+position: relative;
+top: -100px;
+left: -125px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+#cercleQuatre{
+position: relative;
+left: 35px;
+top: -145px;
+z-index: 1;
+cursor:pointer;
+display:inline-block
+}
+
+
+.toggleVin{
+	border: 4px solid rgba(220,194,152,0.34);
+	border-radius: 10px;
+	width: 320px;
+	color: aliceblue;
+	position: relative;
+	left: 25px;
+	top: -500px;
+	font-family: 'Alice', serif;
+ }
+
+ .like {
+  position: relative;
+}
+.like__label {
+  display: block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+}
+.like__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.like__heart {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+  background-position: 0 0;
+  background-size: 4350px 180px;
+  cursor: pointer;
+}
+ .like__input:checked ~ .like__heart {
+  -webkit-animation: heart-explosion 1s steps(28);
+          animation: heart-explosion 1s steps(28);
+  transition: background 1s steps(28);
+  background-position: -4200px 0;
+}
+
+.like__heart::after {
+  display: block;
+  content: attr(data-label-default);
+  width: auto;
+  position: absolute;
+  z-index: -1;
+  bottom: 80%;
+  left: 50%;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #2b2b2b;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: translate(-50%, 0);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.like__heart:hover::after {
+  display: block;
+  opacity: 1;
+  z-index: 10;
+  transform: translate(-50%, -0.25rem);
+}
+
+.like__input:checked ~ .like__heart::after {
+  content: attr(data-label-active);
+} 
+
+ @-webkit-keyframes heart-explosion {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -4200px 0;
+  }
+}
+
+@keyframes heart-explosion {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -4200px 0;
+  }
+} 
+html,
+body {
+  height: 100%;
+}
+
+
+.tweet {
+  display: flex;
+  position: relative;
+  top: 300px;
+  left: 160px;
+
+}
+
+.attribution {
+  text-align: center;
+  font-family: sans-serif;
+  font-style: italic;
+  margin-top: 4rem;
+  color: #690e04;
+}
+
+.button__holder {
+  position: relative; 
+  display: flex;
+  flex-wrap: wrap;
+  top: 420px;
+  left: 200px;
+
+}
+.button__holder:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+}
+
+
+.plus {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  color: #ffffff;
+  background: #ed1c5b;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1), transform 200ms cubic-bezier(0.2, 0, 0.7, 1);
+}
+.plus:after {
+  content: "+";
+  font-size: 2.5em;
+  line-height: 1.1em;
+}
+.plus:hover {
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 15px rgba(138, 59, 88, 0.4), 0 0 1px 30px rgba(138, 59, 88, 0.1), 0 0 1px 45px rgba(138, 59, 88, 0.1);
+}
+}

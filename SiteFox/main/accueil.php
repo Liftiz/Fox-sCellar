@@ -1,12 +1,9 @@
 <?php
-// session_start();
-// if(!$_SESSION['cle']){
-//   header('Location: connexion2.php');
-// }
+session_start();
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,62 +11,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link id="codyframe" rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/parallax.css">
-  <link rel="manifest" href="dunplab-manifest-48027.json">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="manifest" href="manifest.webmanifest">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-  <script  src="parallax.js"></script>
-  <script  src="toggle.js"></script>
-  <script  src="app.js"></script>
+  <script  src="assets/js/parallax.js"></script>
+  <script  src="assets/js/toggle.js"></script>
+  <script  src="assets/js/app.js"></script>
+  <title>Fox's Cellar: Accueil</title>
 </head>
   <body>
 
-    
       <!-- Effet 3D -->
     <div class="container">
+     
       <!-- Menu -->
-      <button class="reset anim-menu-btn bg-contrast-higher color-bg radius-50% js-anim-menu-btn js-tab-focus" style="--anim-menu-btn-icon-size: 24px;" aria-label="Toggle menu" aria-controls="drop-menu-id">
-        <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
-      </button>
-      
-      <div class="drop-menu text-sm@md js-drop-menu js-autocomplete" id="drop-menu-id" data-autocomplete-dropdown-visible-class="drop-menu--searching">
-        <div class="drop-menu__inner js-drop-menu__inner">
-          <!-- menu -->
-          <ul class="drop-menu__list js-drop-menu__list js-drop-menu__list--main">
-        
-            <li>
-              <a href="map.html">
-              <button class="reset drop-menu__btn js-drop-menu__btn--sublist-control">
-                <span>Carte Vignobles</span>
-              </button>
-            </a>
+      <?php
+     include 'nav.php';
 
-            </li>
-        
-            <li>
-              <button class="reset drop-menu__btn js-drop-menu__btn--sublist-control">
-                <span>Vins</span>
-              </button>
-      
-            </li>
-          </ul>
-      
-
-        </div>
-      
-        <!-- close button - mobile only -->
-        <button class="reset drop-menu__close-btn js-drop-menu__close-btn js-tab-focus">
-          <svg class="icon icon--xs margin-right-xxxs" viewBox="0 0 16 16" aria-hidden="true"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line></g></svg>
-      
-          <span>Close Menu</span>
-        </button>
-      </div>
+      ?>
       <div >
-        <a id="connexion" href="connexion2.php">Se connecter</a>
+        <?php if(!isset($_SESSION["user"])) echo "<a id='connexion' href='connexion2.php'>Se connecter</a> "; else echo "<nav class='menu'>
+		<section class='categorie'>
+			<h3>Mon compte</h3>
+			<ul>
+				<li><a href='wishlist.php'>Wishlist</a></li>
+				<li><a href='cave.php'>Ma Cave</a></li>
+        <li><a href='deconnexion.php'>Déconnexion</a></li>
+			</ul>
+		</section>
+	</nav>" ; ?>
       </div>
     <!-- Fin Menu -->
       <ul id="scene">
         <li class="layer" id="sol" data-depth=".1"><img  id="sol" src="assets/img/parallax/sol.png"></li>
-        <li class="layer" id="cheshire" data-depth=".1"><object id="anim-immo-vitrine" class="block width-100%" data="assets/img/parallax/chat.svg" type="image/svg+xml"></object></li>
+        <li class="layer" id="cheshire" data-depth=".1"><object  class="block width-100%" data="assets/img/parallax/chat.svg" type="image/svg+xml"></object></li>
         <!-- <img src="assets/img/parallax/chat.svg"> -->
 
 

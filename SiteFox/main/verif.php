@@ -1,16 +1,6 @@
 <?php
 session_start();
-$host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "foxscellar";
-
-try {
-  $bdd = new PDO("mysql:host=".$host.";dbname=".$db_name.";charset=utf8;", $db_user, $db_password);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-  exit;
-}
+require "config.php";
 if (isset($_GET['idPersonne']) and !empty($_GET['idPersonne']) and isset($_GET['cle']) and !empty($_GET['cle'])) {
     // Si l'idPersonne et la clé correspond à un utilisateur, on va confirme l'existante de l'users
 

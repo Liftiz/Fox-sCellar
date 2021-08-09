@@ -11,11 +11,9 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="assets/js/leaflet.markercluster.js"></script>
-
     <!-- Une feuille de style éventuel -->
     <link rel="stylesheet" href="assets/css/map.css">
-
-    <title>MAP Leaflet </title>
+    <title>Fox's Cellar: MAP Vignobles </title>
   </head>
 
   <body>
@@ -48,7 +46,7 @@
       // Chateau de Bellet
       marker1.bindPopup(''); // Je ne mets pas de texte par défaut
       var mapopup = marker1.getPopup();
-      mapopup.setContent('<a href="chateauBellet.html"><figure><img src="assets/img/chapelle_drone.jpg"alt="Chateau de Bellet"><figcaption>Chateau de Bellet</figcaption></figure></a> '); // je personnalise un peu avant d'afficher
+      mapopup.setContent('<a href="vignoble.php?"><figure><img src="assets/img/chapelle_drone.jpg"alt="Chateau de Bellet"><figcaption>Chateau de Bellet</figcaption></figure></a> '); // je personnalise un peu avant d'afficher
       marker1.openPopup();
       // Domaine des hautes collines 
       marker2.bindPopup(''); // Je ne mets pas de texte par défaut
